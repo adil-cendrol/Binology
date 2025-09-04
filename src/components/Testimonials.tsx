@@ -1,70 +1,85 @@
 import { Star } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import testimonial1 from "@/assets/testimonial-1.jpg"
+import testimonial2 from "@/assets/testimonial-2.jpg"
+import testimonial3 from "@/assets/testimonial-3.jpg"
+import testimonial4 from "@/assets/testimonial-4.jpg"
 
 const Testimonials = () => {
-  const testimonials = [
-    {
-      name: "Sarah Mitchell",
-      rating: 5,
-      text: "The best coffee I've ever tasted! The Ethiopian blend is absolutely divine.",
-      location: "San Francisco, CA"
-    },
-    {
-      name: "David Chen", 
-      rating: 5,
-      text: "Exceptional quality and fast delivery. My morning routine is now perfect.",
-      location: "Portland, OR"
-    },
-    {
-      name: "Emma Rodriguez",
-      rating: 5,
-      text: "Love the ethical sourcing. Great taste with a clear conscience!",
-      location: "Austin, TX"
-    }
-  ]
-
   return (
-    <section className="py-20 bg-coffee-dark text-cream">
+    <section className="py-20" style={{ backgroundColor: 'hsl(60, 15%, 35%)' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-4">
-            <div className="flex items-center space-x-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 fill-golden text-golden" />
-              ))}
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          {/* Rating Section */}
+          <div className="lg:w-1/3 text-center lg:text-left">
+            <div className="flex items-center justify-center lg:justify-start mb-4">
+              <span className="text-6xl md:text-7xl font-bold text-cream mr-2">4.9</span>
+              <Star className="w-8 h-8 fill-golden text-golden" />
             </div>
-            <span className="text-4xl font-bold ml-4">4.9</span>
+            <p className="text-cream/80 text-lg">
+              from 2,140
+            </p>
+            <p className="text-cream/80 text-lg">
+              UAE coffee lovers
+            </p>
           </div>
-          <p className="text-xl text-cream/80">
-            Over 10,000 Coffee Lovers Trust Us
-          </p>
-        </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-coffee-medium/50 border-coffee-light/20">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-golden text-golden" />
-                  ))}
-                </div>
-                <p className="text-cream/90 mb-6 italic leading-relaxed">
-                  "{testimonial.text}"
-                </p>
-                <div>
-                  <p className="font-semibold text-cream">{testimonial.name}</p>
-                  <p className="text-sm text-cream/60">{testimonial.location}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+          {/* Photo Gallery */}
+          <div className="lg:w-2/3 grid grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Large photo - friends enjoying coffee */}
+            <div className="col-span-2 lg:col-span-2 row-span-2">
+              <div className="h-80 lg:h-64 rounded-3xl overflow-hidden shadow-lg">
+                <img 
+                  src={testimonial1} 
+                  alt="Friends enjoying coffee together"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
 
-        <div className="text-center mt-12">
-          <p className="text-cream/60">
-            Join thousands of satisfied customers who start their day right
-          </p>
+            {/* Top right - coffee shop counter */}
+            <div className="hidden lg:block">
+              <div className="h-32 rounded-3xl overflow-hidden shadow-lg">
+                <img 
+                  src={testimonial3} 
+                  alt="Coffee shop atmosphere"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Bottom right - hands with coffee */}
+            <div className="hidden lg:block">
+              <div className="h-28 rounded-3xl overflow-hidden shadow-lg">
+                <img 
+                  src={testimonial4} 
+                  alt="Enjoying warm coffee"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Bottom left - latte art */}
+            <div className="col-span-2 lg:col-span-1">
+              <div className="h-32 rounded-3xl overflow-hidden shadow-lg">
+                <img 
+                  src={testimonial2} 
+                  alt="Beautiful latte art"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Mobile-only additional photos */}
+            <div className="lg:hidden">
+              <div className="h-32 rounded-3xl overflow-hidden shadow-lg">
+                <img 
+                  src={testimonial3} 
+                  alt="Coffee shop atmosphere"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
