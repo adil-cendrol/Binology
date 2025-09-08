@@ -1,6 +1,7 @@
 import { Coffee, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import logo from '@/assets/logoSvg.svg'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -19,10 +20,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-20 py-6">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-12 flex items-center justify-center">
-              <Coffee className="w-8 h-8 text-cream" strokeWidth={1.5} />
+            <div className="w-[148px] h-[60px] flex items-center justify-start">
+              {/* <Coffee className="w-8 h-8 text-cream" strokeWidth={1.5} /> */}
+              <img src={logo} alt="logo" className="w-[148px] h-[60px] ml-[-18px]"/>
             </div>
-            <span className="text-2xl font-light text-cream tracking-wider">BEANOLOGY</span>
+            {/* <span className="text-2xl font-light text-cream tracking-wider">BEANOLOGY</span> */}
           </div>
 
           {/* Desktop Navigation */}
