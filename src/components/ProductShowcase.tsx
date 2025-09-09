@@ -12,7 +12,7 @@ const ProductShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const products = [
-    { id: 1, name: "Classic Roast", image: blend1 },
+    // { id: 1, name: "Classic Roast", image: blend1 },
     { id: 2, name: "Artisan Blend", image: blend2 },
     { id: 3, name: "Reserve Origin", image: blend3 },
   ]
@@ -34,52 +34,54 @@ const ProductShowcase = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex items-center justify-center max-w-5xl mx-auto">
-          {/* prev */}
+        <div className="flex items-center justify-center max-w-6xl mx-auto">
+          {/* prev arrow */}
           <Button
             variant="ghost"
             size="icon"
             onClick={prevProduct}
-            className="text-coffee-dark hover:text-coffee-medium hover:bg-transparent p-2"
+            className="text-white hover:text-white/80 hover:bg-transparent p-2 mr-4"
           >
             <ChevronLeft className="h-8 w-8" />
           </Button>
 
           {/* product cards */}
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-16 mx-8">
-            {products.map((product) => (
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-12 mx-8">
+            {products.map((product, index) => (
               <div
                 key={product.id}
-                className="text-center group transition-transform duration-300 overflow-visible"
+                className="text-center group transition-transform duration-300"
               >
-                {/* circle + image */}
-                <div className="mb-16 overflow-visible">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-60 h-60 object-contain"
-                  />
+                {/* circular background with image overflow */}
+                <div className="relative w-[200px] h-[200px] flex items-center justify-center rounded-full bg-[#FFEFCD] mb-6 mx-auto">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className={"w-[400px] h-[465px] object-contain ml-[21px]"}
+                      style={{ clipPath: 'circle(189px at 48% 31%)' }}
+                      // style={{  clipPath: 'circle(50% at 50% 50%)'}}
+                    />
                 </div>
 
-                {/* name */}
-                <h3 className="text-lg font-semibold text-coffee-dark mb-4">
+                {/* product name */}
+                <h3 className="text-lg font-semibold text-white mb-4">
                   {product.name}
                 </h3>
 
-                {/* button */}
-                <Button className="bg-coffee-dark hover:bg-coffee-medium text-cream px-6 py-2 rounded-full font-medium">
+                {/* add to cart button */}
+                <Button className="bg-[#484A35] hover:bg-[#3A3C2A] text-white px-6 py-2 rounded-lg font-semibold shadow-lg transition-colors">
                   Add to cart
                 </Button>
               </div>
             ))}
           </div>
 
-          {/* next */}
+          {/* next arrow */}
           <Button
             variant="ghost"
             size="icon"
             onClick={nextProduct}
-            className="text-coffee-dark hover:text-coffee-medium hover:bg-transparent p-2"
+            className="text-white hover:text-white/80 hover:bg-transparent p-2 ml-4"
           >
             <ChevronRight className="h-8 w-8" />
           </Button>
